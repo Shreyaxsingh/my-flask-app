@@ -8,7 +8,7 @@ CORS(app)
 def home():
     return send_from_directory('static' , 'index.html')
 
-@app.route('/', methods=['GET'])
+@app.route('/api/message', methods=['GET'])
 def message():
     return jsonify({"message": "Hello from the Flask backend!"})
 
