@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend-Backend Interaction</title>
+</head>
+<body>
+    <h1>Message from Backend:</h1>
+    <button id="fetchButton">Get Message</button>
+    <p id="backendMessage"></p>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:8000/api/message');
+                const data = await response.json();
+                document.getElementById('backendMessage').textContent = data.message;
+            } catch (error) {
+                document.getElementById('backendMessage').textContent = 'Error fetching message!';
+            }
+        });
+    </script>
+</body>
+</html>
+
